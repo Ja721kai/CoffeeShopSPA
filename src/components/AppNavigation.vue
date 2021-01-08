@@ -35,7 +35,7 @@ export default {
     name: 'AppNavigation',
     data() {
         return {
-            appTitle: 'Fair-Coffee\t.',
+            appTitle: 'Fair-Coffee',
             drawer: false,
             items: [{ title: 'Menu' }]
         };
@@ -43,5 +43,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
