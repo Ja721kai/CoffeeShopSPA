@@ -1,10 +1,5 @@
 <template>
-    <v-container
-        fluid
-        fill-height
-        class="home-hero"
-        style="max-height: 100vh ;"
-    >
+    <v-container fluid fill-height class="home-hero" style="max-height: 100vh;">
         <v-layout justify-center align-center column pa-5>
             <div class="display-4 font-weight-black black--text text-xs-left">
                 FRESH DRINKS
@@ -24,12 +19,7 @@
 
 <script>
 export default {
-    name: 'HomeHero',
-    data() {
-        return {
-            viewHeight: '100vh'
-        };
-    }
+    name: 'HomeHero'
 };
 </script>
 

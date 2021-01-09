@@ -3,7 +3,7 @@
         <home-hero></home-hero>
         <home-details></home-details>
         <home-plans></home-plans>
-        <home-footer></home-footer>
+        <page-footer></page-footer>
     </span>
 </template>
 
@@ -11,7 +11,7 @@
 import HomeHero from '@/components/HomeHero';
 import HomeDetails from '@/components/HomeDetails';
 import HomePlans from '@/components/HomePlans';
-import HomeFooter from '@/components/HomeFooter';
+import PageFooter from '@/components/PageFooter';
 
 export default {
     name: 'home',
@@ -19,7 +19,7 @@ export default {
         HomeHero,
         HomeDetails,
         HomePlans,
-        HomeFooter
+        PageFooter
     }
 };
 </script>

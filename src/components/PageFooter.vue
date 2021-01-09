@@ -31,7 +31,9 @@
             <v-card-text class="white--text">
                 {{ new Date().getFullYear() }} —
                 <strong>Fair-Coffee Konstanz GbR</strong> -
-                <router-link to="/imprint"> <b>Imprint</b> </router-link>
+                <router-link to="/imprint">
+                    <b @click="scrollToTop()">Imprint</b>
+                </router-link>
             </v-card-text>
         </v-card>
     </v-footer>
@@ -42,7 +44,15 @@ export default {
     name: 'HomeFooter',
     data: () => ({
         icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram']
-    })
+    }),
+    methods: {
+        scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                left: 0
+            });
+        }
+    }
 };
 </script>
 
