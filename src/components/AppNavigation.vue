@@ -18,23 +18,22 @@
                 </template>
             </v-list>
         </v-navigation-drawer>
-        <v-app-bar fixed dense color="brown darken-4" dark>
+        <v-app-bar fixed dense color="brown darken-4" dark id="navigation">
             <v-toolbar-side-icon
                 class="hidden-md-and-up"
                 @click="drawer = !drawer"
             ></v-toolbar-side-icon>
-            <v-spacer class="hidden-md-and-up"></v-spacer>
             <router-link to="/">
-                <v-toolbar-title>{{ appTitle }}</v-toolbar-title>
+                <v-toolbar-title @click="scrollToTop()">{{ appTitle }}</v-toolbar-title>
             </router-link>
-            <router-link to="/menu">
-                <v-btn
-                    flat
-                    class="hidden-sm-and-down"
-                    style="margin-left: 10px;"
-                    >Menu</v-btn
-                >
-            </router-link>
+            <div class="vl"></div>
+            <v-toolbar-title
+                v-for="(item, index) in items"
+                :key="index"
+                @click="scrollToComponent(item.title)"
+                style="margin-left: 40px"
+                >{{ item.title }}</v-toolbar-title
+            >
         </v-app-bar>
     </span>
 </template>
@@ -42,11 +41,33 @@
 <script>
 export default {
     name: 'AppNavigation',
+    methods: {
+        scrollToComponent(componentId) {
+            let component = document.getElementById(componentId.toLowerCase());
+            let nav = document.getElementById('navigation');
+            window.scrollTo({
+                top: component.offsetTop - parseInt(nav.style.height),
+                behavior: 'smooth'
+            });
+        },
+        scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
+    },
     data() {
         return {
             appTitle: 'Fair-Coffee',
             drawer: false,
-            items: [{ title: 'Menu' }]
+            items: [
+                { title: 'History' },
+                { title: 'Plans' },
+                { title: '<Placeholder>' },
+                { title: '...' }
+            ]
         };
     }
 };
@@ -56,5 +77,10 @@ export default {
 .v-application a {
     color: white;
     text-decoration: none;
+}
+.vl {
+    border-left: 6px solid white;
+    height: 100%;
+    margin-left: 40px;
 }
 </style>

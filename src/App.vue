@@ -26,7 +26,7 @@ export default {
                 left: 0,
                 behavior: 'smooth'
             });
-        },
+        }
     }
 };
 </script>
@@ -36,7 +36,7 @@ export default {
     background-color: white;
     color: black;
     position: fixed;
-    bottom: 80px;
+    bottom: 15px;
     right: 40px;
     width: 180px;
 }
