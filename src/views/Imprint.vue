@@ -1,15 +1,16 @@
 <template>
-    <v-container fluid>
-        <v-layout>
-            <h1>Imprint</h1>
-        </v-layout>
-    </v-container>
+    <span>
+        <coffee-imprint></coffee-imprint>
+    </span>
 </template>
 
 <script>
+import CoffeeImprint from '@/components/CoffeeImprint';
+
 export default {
-    name: 'Imprint'
+    name: 'imprint',
+    components: {
+        CoffeeImprint
+    }
 };
 </script>
-
-<style scoped></style>
