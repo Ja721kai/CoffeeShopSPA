@@ -24,7 +24,9 @@
                 @click="drawer = !drawer"
             ></v-toolbar-side-icon>
             <router-link to="/">
-                <v-toolbar-title @click="scrollToTop()">{{ appTitle }}</v-toolbar-title>
+                <v-toolbar-title @click="scrollToTop()">{{
+                    appTitle
+                }}</v-toolbar-title>
             </router-link>
             <div class="vl"></div>
             <v-toolbar-title
