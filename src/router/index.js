@@ -15,12 +15,6 @@ const routes = [
         name: 'Imprint',
         component: () =>
             import(/* webpackChunkName: "imprint" */ '../views/Imprint.vue')
-    },
-    {
-        path: '/menu',
-        name: 'Menü',
-        component: () =>
-            import(/* webpackChunkName: "menu" */ '../views/Menu.vue')
     }
 ];
 
