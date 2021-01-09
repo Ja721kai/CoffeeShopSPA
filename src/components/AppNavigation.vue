@@ -18,15 +18,24 @@
                 </template>
             </v-list>
         </v-navigation-drawer>
-        <v-toolbar app color="brown darken-4" dark>
+        <v-app-bar fixed dense color="brown darken-4" dark>
             <v-toolbar-side-icon
                 class="hidden-md-and-up"
                 @click="drawer = !drawer"
             ></v-toolbar-side-icon>
             <v-spacer class="hidden-md-and-up"></v-spacer>
-            <v-toolbar-title>{{ appTitle }}</v-toolbar-title>
-            <v-btn flat class="hidden-sm-and-down">Menu</v-btn>
-        </v-toolbar>
+            <router-link to="/">
+                <v-toolbar-title>{{ appTitle }}</v-toolbar-title>
+            </router-link>
+            <router-link to="/menu">
+                <v-btn
+                    flat
+                    class="hidden-sm-and-down"
+                    style="margin-left: 10px;"
+                    >Menu</v-btn
+                >
+            </router-link>
+        </v-app-bar>
     </span>
 </template>
 
@@ -43,4 +52,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.v-application a {
+    color: white;
+    text-decoration: none;
+}
+</style>

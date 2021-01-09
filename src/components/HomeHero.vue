@@ -6,21 +6,18 @@
         style="max-height: 100vh ;"
     >
         <v-layout justify-center align-center column pa-5>
-            <div class="display-4 font-weight-black black--text text-xs-center">
+            <div class="display-4 font-weight-black black--text text-xs-left">
                 FRESH DRINKS
             </div>
             <div
-                class="display-4 font-weight-black black--text text-xs-center mb-3"
+                class="display-4 font-weight-black black--text text-xs-left mb-3"
             >
                 FAIRTRADE ONLY
             </div>
-            <div class="display-1 font-weight-bold white--text text-xs-center">
+            <div class="display-1 font-weight-bold white--text text-xs-left">
                 Finally find your cozy place around the door with fairtrade
                 products.
             </div>
-            <v-btn fab class="mt-5 brown darken-4">
-                <v-icon large color="white">expand_more</v-icon>
-            </v-btn>
         </v-layout>
     </v-container>
 </template>

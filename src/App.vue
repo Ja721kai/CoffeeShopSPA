@@ -5,6 +5,9 @@
         <v-content transition="slide-x-transition">
             <router-view></router-view>
         </v-content>
+        <v-btn id="top" outlined @click="scrollToTop()">
+            back to Top
+        </v-btn>
     </v-app>
 </template>
 
@@ -15,8 +18,26 @@ export default {
     name: 'App',
     components: {
         AppNavigation
+    },
+    methods: {
+        scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            });
+        },
     }
 };
 </script>
 
-<style></style>
+<style>
+#top {
+    background-color: white;
+    color: black;
+    position: fixed;
+    bottom: 80px;
+    right: 40px;
+    width: 180px;
+}
+</style>
