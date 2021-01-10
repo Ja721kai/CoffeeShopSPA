@@ -7,12 +7,12 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: '/',
-        name: 'Home',
+        name: 'home',
         component: Home
     },
     {
         path: '/imprint',
-        name: 'Imprint',
+        name: 'imprint',
         component: () =>
             import(/* webpackChunkName: "imprint" */ '../views/Imprint.vue')
     }

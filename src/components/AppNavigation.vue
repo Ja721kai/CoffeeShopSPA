@@ -29,13 +29,20 @@
                 }}</v-toolbar-title>
             </router-link>
             <div class="vl"></div>
-            <v-toolbar-title
-                v-for="(item, index) in items"
-                :key="index"
-                @click="scrollToComponent(item.title)"
-                style="margin-left: 40px"
-                >{{ item.title }}</v-toolbar-title
-            >
+            <v-container id="nav-container" v-if="['home'].includes($route.name)">
+                <v-row no-gutters>
+                    <v-col
+                        md="auto"
+                        v-for="(item, index) in items"
+                        :key="index"
+                        @click="scrollToComponent(item.title)"
+                        style="margin-left: 40px"
+                    >
+                        <v-toolbar-title> {{ item.title }}</v-toolbar-title>
+                    </v-col>
+                </v-row>
+            </v-container>
+
         </v-app-bar>
     </span>
 </template>
@@ -84,5 +91,8 @@ export default {
     border-left: 6px solid white;
     height: 100%;
     margin-left: 40px;
+}
+#nav-container {
+    margin: 5px;
 }
 </style>
