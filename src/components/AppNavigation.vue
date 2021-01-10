@@ -72,9 +72,9 @@ export default {
             appTitle: 'Fair-Coffee',
             drawer: false,
             items: [
+                { title: 'How We Work' },
                 { title: 'History' },
-                { title: 'Plans' },
-                { title: '<Placeholder>' },
+                { title: 'Drinks' },
                 { title: '...' }
             ]
         };

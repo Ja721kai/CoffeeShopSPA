@@ -1,7 +1,8 @@
 <template>
     <span>
         <home-hero></home-hero>
-        <home-details></home-details>
+        <home-work></home-work>
+        <home-history></home-history>
         <home-plans></home-plans>
         <page-footer></page-footer>
     </span>
@@ -9,7 +10,8 @@
 
 <script>
 import HomeHero from '@/components/HomeHero';
-import HomeDetails from '@/components/HomeDetails';
+import HomeWork from '@/components/HomeWork';
+import HomeHistory from '@/components/HomeHistory';
 import HomePlans from '@/components/HomePlans';
 import PageFooter from '@/components/PageFooter';
 
@@ -17,7 +19,8 @@ export default {
     name: 'home',
     components: {
         HomeHero,
-        HomeDetails,
+        HomeWork,
+        HomeHistory,
         HomePlans,
         PageFooter
     }

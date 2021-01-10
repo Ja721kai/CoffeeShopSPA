@@ -1,8 +1,8 @@
 <template>
-    <v-container grid-list-lg id="plans">
+    <v-container grid-list-lg id="drinks">
         <v-layout row>
             <v-flex xs12 class="text-xs-center display-1 font-weight-black my-5"
-                >Available Meal Plans</v-flex
+                >Available Drinks</v-flex
             >
         </v-layout>
         <v-layout row wrap>
