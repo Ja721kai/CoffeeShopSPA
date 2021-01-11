@@ -5,7 +5,12 @@
         <v-main transition="slide-x-transition">
             <router-view></router-view>
         </v-main>
-        <v-btn id="top" outlined @click="scrollToTop()" v-if="['home'].includes($route.name)">
+        <v-btn
+            id="top"
+            outlined
+            @click="scrollToTop()"
+            v-if="['home'].includes($route.name)"
+        >
             back to Top
         </v-btn>
     </v-app>

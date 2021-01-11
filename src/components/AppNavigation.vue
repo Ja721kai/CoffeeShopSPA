@@ -29,7 +29,10 @@
                 }}</v-toolbar-title>
             </router-link>
             <div class="vl"></div>
-            <v-container id="nav-container" v-if="['home'].includes($route.name)">
+            <v-container
+                id="nav-container"
+                v-if="['home'].includes($route.name)"
+            >
                 <v-row no-gutters>
                     <v-col
                         md="auto"
@@ -42,7 +45,6 @@
                     </v-col>
                 </v-row>
             </v-container>
-
         </v-app-bar>
     </span>
 </template>
