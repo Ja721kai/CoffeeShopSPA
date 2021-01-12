@@ -24,6 +24,12 @@ export default {
     components: {
         AppNavigation
     },
+    created() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed() {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
     methods: {
         scrollToTop() {
             window.scrollTo({
@@ -31,6 +37,16 @@ export default {
                 left: 0,
                 behavior: 'smooth'
             });
+        },
+        handleScroll() {
+            console.log(window.scrollY);
+            if (window.scrollY > 400) {
+                let scrollTopBtn = document.getElementById('top');
+                scrollTopBtn.style.display = 'none';
+            } else {
+                let scrollTopBtn = document.getElementById('top');
+                scrollTopBtn.style.display = 'flex';
+            }
         }
     }
 };
