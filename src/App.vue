@@ -9,6 +9,7 @@
             id="top"
             outlined
             @click="scrollToTop()"
+            style="display: none"
             v-if="['home'].includes($route.name)"
         >
             back to Top
@@ -40,7 +41,7 @@ export default {
         },
         handleScroll() {
             console.log(window.scrollY);
-            if (window.scrollY > 400) {
+            if (window.scrollY < 400) {
                 let scrollTopBtn = document.getElementById('top');
                 scrollTopBtn.style.display = 'none';
             } else {
