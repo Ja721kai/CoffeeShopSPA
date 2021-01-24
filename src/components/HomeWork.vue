@@ -5,7 +5,7 @@
             <v-container id="hund">
                 <video id="ex_video_2" width="80%" controls>
                     <source
-                        src="@/assets/example_video2.mp4"
+                        src="@/assets/example_video.mp4"
                         type="video/mp4"
                     />
                 </video>
