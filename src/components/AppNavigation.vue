@@ -66,14 +66,23 @@ export default {
         window.removeEventListener('scroll', this.handleScroll);
     },
     methods: {
-        handleScroll() {},
+        handleScroll() {
+            const homeHeroHeight = document.getElementsByClassName('home-hero')[0].offsetHeight;
+            const navBarHeight = document.getElementById('navigation').offsetHeight;
+
+            if(homeHeroHeight - (navBarHeight + window.scrollY) < 0) {
+                this.adjustNavbar('image');
+            } else {
+                this.adjustNavbar('transparent');
+            }
+        },
         async scrollToComponent(componentId) {
-            let nav = document.getElementById('navigation');
+            const nav = document.getElementById('navigation');
             if (componentId === 'top') {
                 await this.scrollTo(0);
                 this.adjustNavbar('transparent');
             } else {
-                let component = document.getElementById(
+                const component = document.getElementById(
                     componentId.toLowerCase()
                 );
                 await this.scrollTo(
@@ -92,7 +101,7 @@ export default {
             });
         },
         adjustNavbar(background) {
-            let nav = document.getElementById('navigation');
+            const nav = document.getElementById('navigation');
             if (background === 'transparent') {
                 nav.style.backgroundImage = 'none';
             } else if (background === 'image') {
