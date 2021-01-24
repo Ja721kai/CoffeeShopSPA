@@ -40,7 +40,6 @@ export default {
             });
         },
         handleScroll() {
-            console.log(window.scrollY);
             if (window.scrollY < 400) {
                 let scrollTopBtn = document.getElementById('top');
                 scrollTopBtn.style.display = 'none';

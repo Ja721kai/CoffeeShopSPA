@@ -20,16 +20,19 @@
             </v-list>
         </v-navigation-drawer>
         <!--  Desktop view -->
-        <!-- <v-app-bar fixed dense color="brown darken-4" dark id="navigation"> OLD NAV BAR-->
-        <v-app-bar fixed dense dark id="navigation">
+        <!-- <v-app-bar fixed dense color="brown darken-4" dark id="navigation"> OLD NAV BAR -->
+        <v-app-bar flat fixed id="navigation">
+            <!-- add prominent for thicker appbar -->
             <v-toolbar-side-icon
                 class="hidden-md-and-up"
                 @click="drawer = !drawer"
             ></v-toolbar-side-icon>
             <router-link to="/">
-                <v-toolbar-title @click="scrollToTop()">{{
-                    appTitle
-                }}</v-toolbar-title>
+                <v-toolbar-title
+					style="color: white"
+                    @click="scrollToComponent('top')"
+                    >{{ appTitle }}</v-toolbar-title
+                >
             </router-link>
             <div class="vl"></div>
             <v-container
@@ -53,23 +56,48 @@
 </template>
 
 <script>
+import navBackgroundUrl from '../assets/navbar_background.png'
 export default {
     name: 'AppNavigation',
+    created() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed() {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
     methods: {
-        scrollToComponent(componentId) {
-            let component = document.getElementById(componentId.toLowerCase());
+        handleScroll() {},
+        async scrollToComponent(componentId) {
             let nav = document.getElementById('navigation');
-            window.scrollTo({
-                top: component.offsetTop - parseInt(nav.style.height),
-                behavior: 'smooth'
+            if (componentId === 'top') {
+                await this.scrollTo(0);
+                this.adjustNavbar('transparent');
+            } else {
+                let component = document.getElementById(
+                    componentId.toLowerCase()
+                );
+                await this.scrollTo(
+                    component.offsetTop - parseInt(nav.style.height)
+                );
+                this.adjustNavbar('image');
+            }
+        },
+        scrollTo(topCoordinate) {
+            return new Promise(resolve => {
+                window.scrollTo({
+                    top: topCoordinate,
+                    behavior: 'smooth'
+                });
+                resolve();
             });
         },
-        scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth'
-            });
+        adjustNavbar(background) {
+            let nav = document.getElementById('navigation');
+            if (background === 'transparent') {
+                nav.style.backgroundImage = 'none';
+            } else if (background === 'image') {
+                nav.style.backgroundImage = 'url(' + this.navBackgroundUrl + ')';
+            }
         }
     },
     data() {
@@ -79,9 +107,10 @@ export default {
             items: [
                 { title: 'How We Work' },
                 { title: 'History' },
-                { title: 'Drinks' },
-                { title: '...' }
-            ]
+                { title: 'Drinks' }
+                // { title: '...' }  -> to add extra elements
+            ],
+            navBackgroundUrl
         };
     }
 };
@@ -96,6 +125,10 @@ export default {
     border-left: 6px solid white;
     height: 100%;
     margin-left: 40px;
+}
+#navigation {
+    background-color: transparent;
+    color: white;
 }
 #nav-container {
     margin: 5px;
