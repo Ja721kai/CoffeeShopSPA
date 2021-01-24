@@ -29,7 +29,7 @@
             ></v-toolbar-side-icon>
             <router-link to="/">
                 <v-toolbar-title
-					style="color: white"
+                    style="color: white"
                     @click="scrollToComponent('top')"
                     >{{ appTitle }}</v-toolbar-title
                 >
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import navBackgroundUrl from '../assets/navbar_background.png'
+import navBackgroundUrl from '../assets/navbar_background.png';
 export default {
     name: 'AppNavigation',
     created() {
@@ -67,10 +67,13 @@ export default {
     },
     methods: {
         handleScroll() {
-            const homeHeroHeight = document.getElementsByClassName('home-hero')[0].offsetHeight;
-            const navBarHeight = document.getElementById('navigation').offsetHeight;
+            const homeHeroHeight = document.getElementsByClassName(
+                'home-hero'
+            )[0].offsetHeight;
+            const navBarHeight = document.getElementById('navigation')
+                .offsetHeight;
 
-            if(homeHeroHeight - (navBarHeight + window.scrollY) < 0) {
+            if (homeHeroHeight - (navBarHeight + window.scrollY) < 0) {
                 this.adjustNavbar('image');
             } else {
                 this.adjustNavbar('transparent');
@@ -105,7 +108,8 @@ export default {
             if (background === 'transparent') {
                 nav.style.backgroundImage = 'none';
             } else if (background === 'image') {
-                nav.style.backgroundImage = 'url(' + this.navBackgroundUrl + ')';
+                nav.style.backgroundImage =
+                    'url(' + this.navBackgroundUrl + ')';
             }
         }
     },
