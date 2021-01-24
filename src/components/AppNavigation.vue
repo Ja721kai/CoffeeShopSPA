@@ -20,7 +20,8 @@
             </v-list>
         </v-navigation-drawer>
         <!--  Desktop view -->
-        <v-app-bar fixed dense color="brown darken-4" dark id="navigation">
+        <!-- <v-app-bar fixed dense color="brown darken-4" dark id="navigation"> OLD NAV BAR-->
+        <v-app-bar fixed dense dark id="navigation">
             <v-toolbar-side-icon
                 class="hidden-md-and-up"
                 @click="drawer = !drawer"
