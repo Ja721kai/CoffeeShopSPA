@@ -1,5 +1,6 @@
 <template>
     <span>
+        <!--  Mobile view -->
         <v-navigation-drawer
             app
             v-model="drawer"
@@ -18,6 +19,7 @@
                 </template>
             </v-list>
         </v-navigation-drawer>
+        <!--  Desktop view -->
         <v-app-bar fixed dense color="brown darken-4" dark id="navigation">
             <v-toolbar-side-icon
                 class="hidden-md-and-up"

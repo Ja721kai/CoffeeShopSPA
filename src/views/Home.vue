@@ -3,7 +3,7 @@
         <home-hero></home-hero>
         <home-work></home-work>
         <home-history></home-history>
-        <home-plans></home-plans>
+        <home-coffee-cards></home-coffee-cards>
         <page-footer></page-footer>
     </span>
 </template>
@@ -12,7 +12,7 @@
 import HomeHero from '@/components/HomeHero';
 import HomeWork from '@/components/HomeWork';
 import HomeHistory from '@/components/HomeHistory';
-import HomePlans from '@/components/HomePlans';
+import HomeCoffeeCards from '@/components/HomeCoffeeCards';
 import PageFooter from '@/components/PageFooter';
 
 export default {
@@ -21,7 +21,7 @@ export default {
         HomeHero,
         HomeWork,
         HomeHistory,
-        HomePlans,
+        HomeCoffeeCards,
         PageFooter
     }
 };

@@ -8,15 +8,12 @@
         <v-layout row wrap>
             <v-flex xs12 sm12 md4>
                 <v-card>
-                    <v-img
-                        src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                        height="500px"
-                    >
+                    <v-img src="../assets/cafe1_vert.jpg" height="500px">
                         <v-container fill-height fluid>
                             <v-layout fill-height>
                                 <v-flex xs12 align-end flexbox>
                                     <span class="headline white--text"
-                                        >CAPPUCCINO</span
+                                        >EXAMPLE 1</span
                                     >
                                 </v-flex>
                             </v-layout>
@@ -25,7 +22,7 @@
 
                     <v-card-title primary-title>
                         <div>
-                            <h3 class="headline mb-0">Cappuccino</h3>
+                            <h3 class="headline mb-0">Example 1</h3>
                             <div>
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Nullam mauris felis, varius
@@ -40,15 +37,12 @@
 
             <v-flex xs12 sm12 md4>
                 <v-card>
-                    <v-img
-                        src="https://images.unsplash.com/photo-1580419423277-f5bd81b32a05?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                        height="500px"
-                    >
+                    <v-img src="../assets/cafe5_vert.jpg" height="500px">
                         <v-container fill-height fluid>
                             <v-layout fill-height>
                                 <v-flex xs12 align-end flexbox>
-                                    <span class="headline black--text"
-                                        >MATCHA</span
+                                    <span class="headline white--text"
+                                        >EXAMPLE 2</span
                                     >
                                 </v-flex>
                             </v-layout>
@@ -56,7 +50,7 @@
                     </v-img>
                     <v-card-title primary-title>
                         <div>
-                            <h3 class="headline mb-0">Matcha</h3>
+                            <h3 class="headline mb-0">Example 2</h3>
                             <div>
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Nullam mauris felis, varius
@@ -71,15 +65,12 @@
 
             <v-flex xs12 sm12 md4>
                 <v-card>
-                    <v-img
-                        src="https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                        height="500px"
-                    >
+                    <v-img src="../assets/cafe2_vert.jpg" height="500px">
                         <v-container fill-height fluid>
                             <v-layout fill-height>
                                 <v-flex xs12 align-end flexbox>
                                     <span class="headline white--text"
-                                        >ESPRESSO</span
+                                        >EXAMPLE 3</span
                                     >
                                 </v-flex>
                             </v-layout>
@@ -87,7 +78,7 @@
                     </v-img>
                     <v-card-title primary-title>
                         <div>
-                            <h3 class="headline mb-0">Esspresso</h3>
+                            <h3 class="headline mb-0">Example 3</h3>
                             <div>
                                 Lorem ipsum dolor sit amet, consectetur
                                 adipiscing elit. Nullam mauris felis, varius
