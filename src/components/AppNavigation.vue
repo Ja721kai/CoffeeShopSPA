@@ -110,6 +110,7 @@ export default {
             } else if (background === 'image') {
                 nav.style.backgroundImage =
                     'url(' + this.navBackgroundUrl + ')';
+                // "url('../assets/navbar_background.png')"
             }
         }
     },
