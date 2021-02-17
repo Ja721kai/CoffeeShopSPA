@@ -5,42 +5,15 @@
                 >Available Drinks</v-flex
             >
         </v-layout>
-        <!--<v-layout row wrap>
-            <v-flex>
-                <v-flex xs12 sm12 md4 :key="index">
-                    <v-card>
-                        <v-img src="../assets/cafe1_vert.jpg" height="500px">
-                            <v-container fill-height fluid>
-                                <v-layout fill-height>
-                                    <v-flex xs12 align-end flexbox>
-                                        <span class="headline white--text">
-                                            TEST</span
-                                        >
-                                    </v-flex>
-                                </v-layout>
-                            </v-container>
-                        </v-img>
-                        <v-card-title primary-title>
-                            <div>
-                                <h3 class="headline mb-0">Example 1</h3>
-                                <v-flex>
-                                    Hello
-                                </v-flex>
-                            </div>
-                        </v-card-title>
-                    </v-card>
-                </v-flex>
-            </v-flex>
-        </v-layout>-->
         <v-layout row wrap>
-            <v-flex xs12 sm12 md4>
+            <v-flex xs12 sm12 md4 v-for="index in 3" :key="index">
                 <v-card>
-                    <v-img :src="drinks[0].img_url" height="500px">
+                    <v-img :src="drinks[index - 1].img_url" height="500px">
                         <v-container fill-height fluid>
                             <v-layout fill-height>
                                 <v-flex xs12 align-end flexbox>
                                     <span class="headline white--text">{{
-                                        drinks[0].title
+                                        drinks[index - 1].title
                                     }}</span>
                                 </v-flex>
                             </v-layout>
@@ -51,55 +24,7 @@
                         <div>
                             <h3 class="headline mb-0">Example 1</h3>
                             <div>
-                                {{ drinks[0].text }}
-                            </div>
-                        </div>
-                    </v-card-title>
-                </v-card>
-            </v-flex>
-
-            <v-flex xs12 sm12 md4>
-                <v-card>
-                    <v-img :src="drinks[1].img_url" height="500px">
-                        <v-container fill-height fluid>
-                            <v-layout fill-height>
-                                <v-flex xs12 align-end flexbox>
-                                    <span class="headline white--text">{{
-                                        drinks[1].title
-                                    }}</span>
-                                </v-flex>
-                            </v-layout>
-                        </v-container>
-                    </v-img>
-                    <v-card-title primary-title>
-                        <div>
-                            <h3 class="headline mb-0">Example 2</h3>
-                            <div>
-                                {{ drinks[1].text }}
-                            </div>
-                        </div>
-                    </v-card-title>
-                </v-card>
-            </v-flex>
-
-            <v-flex xs12 sm12 md4>
-                <v-card>
-                    <v-img :src="drinks[2].img_url" height="500px">
-                        <v-container fill-height fluid>
-                            <v-layout fill-height>
-                                <v-flex xs12 align-end flexbox>
-                                    <span class="headline white--text">{{
-                                        drinks[2].title
-                                    }}</span>
-                                </v-flex>
-                            </v-layout>
-                        </v-container>
-                    </v-img>
-                    <v-card-title primary-title>
-                        <div>
-                            <h3 class="headline mb-0">Example 3</h3>
-                            <div>
-                                {{ drinks[2].text }}
+                                {{ drinks[index - 1].text }}
                             </div>
                         </div>
                     </v-card-title>
