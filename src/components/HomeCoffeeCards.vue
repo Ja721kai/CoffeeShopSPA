@@ -96,7 +96,7 @@
 
 <script>
 export default {
-    name: 'HomePlans'
+    name: 'HomePlans',
 };
 </script>
 

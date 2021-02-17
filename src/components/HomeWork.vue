@@ -3,8 +3,11 @@
         <v-layout column>
             <v-flex class="display-2 text-xs-center my-5">Our Work</v-flex>
             <v-container>
-                <video id="ex_video" width="100%" controls>
-                    <source src="@/assets/example_video.mp4" type="video/mp4" />
+                <video id="ex_video" width="80%" controls>
+                    <source
+                        src="@/assets/JC_Advertising.mp4"
+                        type="video/mp4"
+                    />
                 </video>
             </v-container>
         </v-layout>
