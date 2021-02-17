@@ -6,14 +6,14 @@
             >
         </v-layout>
         <v-layout row wrap>
-            <v-flex xs12 sm12 md4 v-for="index in 3" :key="index">
+            <v-flex xs12 sm12 md4 v-for="(drink, index) in drinks" :key="index">
                 <v-card>
-                    <v-img :src="drinks[index - 1].img_url" height="500px">
+                    <v-img :src="drink.img_url" height="500px">
                         <v-container fill-height fluid>
                             <v-layout fill-height>
                                 <v-flex xs12 align-end flexbox>
                                     <span class="headline white--text">{{
-                                        drinks[index - 1].title
+                                        drink.title
                                     }}</span>
                                 </v-flex>
                             </v-layout>
@@ -24,7 +24,7 @@
                         <div>
                             <h3 class="headline mb-0">Example 1</h3>
                             <div>
-                                {{ drinks[index - 1].text }}
+                                {{ drink.text }}
                             </div>
                         </div>
                     </v-card-title>
