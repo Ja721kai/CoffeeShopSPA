@@ -40,13 +40,40 @@ export default {
             });
         },
         handleScroll() {
-            console.log(window.scrollY);
-            if (window.scrollY < 400) {
-                let scrollTopBtn = document.getElementById('top');
+            let scrollTopBtn = document.getElementById('top');
+            if (window.scrollY < 50) {
                 scrollTopBtn.style.display = 'none';
-            } else {
-                let scrollTopBtn = document.getElementById('top');
+            } else if (window.scrollY < 600) {
                 scrollTopBtn.style.display = 'flex';
+                scrollTopBtn.style.opacity = (window.scrollY - 50) / 6 + '%';
+            } else {
+                scrollTopBtn.style.display = 'flex';
+                scrollTopBtn.style.opacity = '100%';
+                // calculate button offset from bottom if footer is reached:
+                let body = document.body;
+                let html = document.documentElement;
+
+                let pageHeight = Math.max(
+                    body.scrollHeight,
+                    body.offsetHeight,
+                    html.clientHeight,
+                    html.scrollHeight,
+                    html.offsetHeight
+                );
+                pageHeight = document.documentElement.scrollHeight;
+                let pageBottomOffset = pageHeight - window.scrollY - '969'; // mysterios 1090px not in body
+
+                //let footer = document.getElementById('pageFooter');
+                let footerHeight = 183; //footer.style.height;
+                //console.log(footer);
+                //console.log('footerheight: ' + footerHeight);
+                //console.log('page offset: ' + pageBottomOffset);
+                if (pageBottomOffset < footerHeight) {
+                    scrollTopBtn.style.bottom =
+                        15 + (footerHeight - pageBottomOffset) + 'px';
+                } else {
+                    scrollTopBtn.style.bottom = '15px';
+                }
             }
         }
     }
