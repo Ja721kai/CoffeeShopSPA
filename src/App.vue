@@ -63,11 +63,11 @@ export default {
                 pageHeight = document.documentElement.scrollHeight;
                 let pageBottomOffset = pageHeight - window.scrollY - '969'; // mysterios 1090px not in body
 
-                let footer = document.getElementById('pageFooter');
+                //let footer = document.getElementById('pageFooter');
                 let footerHeight = 183; //footer.style.height;
-                console.log(footer);
-                console.log('footerheight: ' + footerHeight);
-                console.log('page offset: ' + pageBottomOffset);
+                //console.log(footer);
+                //console.log('footerheight: ' + footerHeight);
+                //console.log('page offset: ' + pageBottomOffset);
                 if (pageBottomOffset < footerHeight) {
                     scrollTopBtn.style.bottom =
                         15 + (footerHeight - pageBottomOffset) + 'px';
