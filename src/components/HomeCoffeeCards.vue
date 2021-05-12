@@ -22,6 +22,11 @@
 
                     <v-card-title primary-title>
                         <div>
+                            <v-layout row justify-end>
+                                <v-col cols="7">
+                                    <LanguageDropdown></LanguageDropdown>
+                                </v-col>
+                            </v-layout>
                             <h3 class="headline mb-0">{{ drink.title }}</h3>
                             <p></p>
                             <div
@@ -29,7 +34,16 @@
                                 textIndex) in drink.paragraphs"
                                 :key="textIndex"
                             >
-                                <p>{{ paragraph.text }}</p>
+                                <p
+                                    :style="{
+                                        'background-color': diff
+                                            ? 'gold'
+                                            : 'initial'
+                                    }"
+                                    id="card-text"
+                                >
+                                    {{ paragraph.text }}
+                                </p>
                                 <p></p>
                             </div>
                             <!--
@@ -41,6 +55,15 @@
                             -->
                         </div>
                     </v-card-title>
+                    <v-flex class="text-right">
+                        <v-btn
+                            outlined
+                            color="red"
+                            id="regenerate-btn"
+                            v-on:click="regenerateText(drink)"
+                            >Regenerate</v-btn
+                        >
+                    </v-flex>
                 </v-card>
             </v-flex>
         </v-layout>
@@ -51,12 +74,14 @@
 import image1 from '../assets/cafe1_vert.jpg';
 import image2 from '../assets/cafe5_vert.jpg';
 import image3 from '../assets/cafe2_vert.jpg';
-import textFile1 from 'raw-loader!../ax_results/coffee_result1.txt';
-import textFile2 from 'raw-loader!../ax_results/coffee_result2.txt';
-import textFile3 from 'raw-loader!../ax_results/coffee_result3.txt';
+import textFile1 from 'raw-loader!../ax_results/coffee_result_espresso.txt';
+import textFile2 from 'raw-loader!../ax_results/coffee_result_latte.txt';
+import textFile3 from 'raw-loader!../ax_results/coffee_result_cappuccino.txt';
+import LanguageDropdown from './LanguageDropdown';
 
 export default {
     name: 'HomePlans',
+    components: { LanguageDropdown },
     data() {
         return {
             drinks: [
@@ -108,7 +133,8 @@ export default {
                     img_url: image3,
                     textFile: textFile3
                 }
-            ]
+            ],
+            diff: false
         };
     },
     // TODO: Switch to Vuex and use Mutations to change states and request data:
@@ -149,9 +175,19 @@ export default {
                 this.drinks[i].paragraphs[1].text = paragraph2;
                 this.drinks[i].paragraphs[2].text = paragraph3;
             }
+        },
+        regenerateText(drink) {
+            let oldValue = drink.paragraphs[0].text;
+            let newValue = 'TEST';
+            drink.paragraphs[0].text = newValue;
+            this.diff = !oldValue.includes(newValue);
         }
     }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#card-text {
+    word-break: normal;
+}
+</style>
