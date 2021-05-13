@@ -1,7 +1,8 @@
 <template>
     <v-select
-        v-model="e1"
+        v-model="selectedLanguage"
         :items="languages"
+        @input="changeLanguage()"
         prepend-icon="mdi-translate"
     ></v-select>
 </template>
@@ -11,9 +12,14 @@ export default {
     name: 'LanguageDropdown',
     data() {
         return {
-            e1: 'German',
-            languages: ['German', 'English']
+            selectedLanguage: 'English',
+            languages: ['English', 'German']
         };
+    },
+    methods: {
+        changeLanguage() {
+            this.$emit('input', this.selectedLanguage);
+        }
     }
 };
 </script>

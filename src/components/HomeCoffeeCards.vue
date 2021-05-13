@@ -24,28 +24,25 @@
                         <div>
                             <v-layout row justify-end>
                                 <v-col cols="7">
-                                    <LanguageDropdown></LanguageDropdown>
+                                    <LanguageDropdown
+                                        v-model="selectedLanguage"
+                                        @input="changeLanguage(drink)"
+                                    ></LanguageDropdown>
                                 </v-col>
                             </v-layout>
                             <h3 class="headline mb-0">{{ drink.title }}</h3>
                             <p></p>
-                            <div
-                                v-for="(paragraph,
-                                textIndex) in drink.paragraphs"
-                                :key="textIndex"
+                            <p
+                                :style="{
+                                    'background-color': diff
+                                        ? 'gold'
+                                        : 'initial'
+                                }"
+                                id="card-text"
                             >
-                                <p
-                                    :style="{
-                                        'background-color': diff
-                                            ? 'gold'
-                                            : 'initial'
-                                    }"
-                                    id="card-text"
-                                >
-                                    {{ paragraph.text }}
-                                </p>
-                                <p></p>
-                            </div>
+                                {{ drink.paragraph }}
+                            </p>
+                            <p></p>
                             <!--
                             This can be used to insert empty lines into hero cards: (just empty paragraph)
                             <p></p>
@@ -74,67 +71,49 @@
 import image1 from '../assets/cafe1_vert.jpg';
 import image2 from '../assets/cafe5_vert.jpg';
 import image3 from '../assets/cafe2_vert.jpg';
-import textFile1 from 'raw-loader!../ax_results/coffee_result_espresso.txt';
-import textFile2 from 'raw-loader!../ax_results/coffee_result_latte.txt';
-import textFile3 from 'raw-loader!../ax_results/coffee_result_cappuccino.txt';
+import textFileEspressoEN from 'raw-loader!../ax_results/espresso_EN.txt';
+import textFileLatteEN from 'raw-loader!../ax_results/latte_EN.txt';
+import textFileCappuccinoEN from 'raw-loader!../ax_results/cappuccino_EN.txt';
+import textFileEspressoDE from 'raw-loader!../ax_results/espresso_DE.txt';
+import textFileLatteDE from 'raw-loader!../ax_results/latte_DE.txt';
+import textFileCappuccinoDE from 'raw-loader!../ax_results/cappuccino_DE.txt';
 import LanguageDropdown from './LanguageDropdown';
 
 export default {
-    name: 'HomePlans',
+    name: 'HomeCoffeeCards',
     components: { LanguageDropdown },
     data() {
         return {
             drinks: [
                 {
                     title: 'EXAMPLE 1',
-                    paragraphs: [
-                        {
-                            text: 'Lorem ipsum'
-                        },
-                        {
-                            text: 'Dolor sit Amet'
-                        },
-                        {
-                            text: 'Consect Etur Adipiscing Elit'
-                        }
-                    ],
+                    paragraph: 'lorem ipsum',
                     img_url: image1,
-                    textFile: textFile1
+                    textFile: textFileEspressoEN
                 },
                 {
                     title: 'EXAMPLE 2',
-                    paragraphs: [
-                        {
-                            text: 'Lorem ipsum'
-                        },
-                        {
-                            text: 'Dolor sit Amet'
-                        },
-                        {
-                            text: 'Consect Etur Adipiscing Elit'
-                        }
-                    ],
+                    paragraph: 'lorem ipsum',
                     img_url: image2,
-                    textFile: textFile2
+                    textFile: textFileLatteEN
                 },
                 {
                     title: 'EXAMPLE 3',
-                    paragraphs: [
-                        {
-                            text: 'Lorem ipsum'
-                        },
-                        {
-                            text: 'Dolor sit Amet'
-                        },
-                        {
-                            text: 'Consect Etur Adipiscing Elit'
-                        }
-                    ],
+                    paragraph: 'lorem ipsum',
                     img_url: image3,
-                    textFile: textFile3
+                    textFile: textFileCappuccinoEN
                 }
             ],
-            diff: false
+            languageFiles: {
+                textFileCappuccinoEN: textFileCappuccinoEN,
+                textFileEspressoEN: textFileEspressoEN,
+                textFileLatteEN: textFileLatteEN,
+                textFileCappuccinoDE: textFileCappuccinoDE,
+                textFileEspressoDE: textFileEspressoDE,
+                textFileLatteDE: textFileLatteDE
+            },
+            diff: false,
+            selectedLanguage: 'English'
         };
     },
     // TODO: Switch to Vuex and use Mutations to change states and request data:
@@ -143,37 +122,18 @@ export default {
     },
     methods: {
         parseAXResponse() {
-            // TODO: Currently only removes special signs instead of converting them
-            var WINDOWS_1252 =
-                '\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~€�‚ƒ„…†‡ˆ‰Š‹Œ�Ž��‘’“”•–—˜™š›œ�žŸ ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ';
-
-            for (var i = 0; i < this.drinks.length; i++) {
-                var text = '';
-                var textFile = this.drinks[i].textFile;
-                for (var j = 0; j < textFile.length; j++) {
-                    text += WINDOWS_1252.charAt(textFile.charCodeAt(j));
-                }
-
-                let split = text.split('</h1>');
+            for (let i = 0; i < this.drinks.length; i++) {
+                const textFile = this.drinks[i].textFile;
+                let split = textFile.split('</h1>');
                 let coffee_title = split[0].split('<h1>')[1];
                 let coffee_paragraph_split = split[1].split('<p>');
-                let paragraph1 = coffee_paragraph_split[1].replaceAll(
-                    '</p>',
-                    ''
-                );
-                let paragraph2 = coffee_paragraph_split[2].replaceAll(
-                    '</p>',
-                    ''
-                );
-                let paragraph3 = coffee_paragraph_split[3].replaceAll(
+                let paragraph = coffee_paragraph_split[1].replaceAll(
                     '</p>',
                     ''
                 );
 
                 this.drinks[i].title = coffee_title;
-                this.drinks[i].paragraphs[0].text = paragraph1;
-                this.drinks[i].paragraphs[1].text = paragraph2;
-                this.drinks[i].paragraphs[2].text = paragraph3;
+                this.drinks[i].paragraph = paragraph;
             }
         },
         regenerateText(drink) {
@@ -181,6 +141,31 @@ export default {
             let newValue = 'TEST';
             drink.paragraphs[0].text = newValue;
             this.diff = !oldValue.includes(newValue);
+        },
+        changeLanguage(drink) {
+            const drinkIndex = this.drinks.findIndex(
+                dataDrink => dataDrink.title == drink.title
+            );
+            let textFileString;
+            switch (this.selectedLanguage) {
+                case 'English':
+                    textFileString =
+                        'textFile' + drink.title.split(' ')[0] + 'EN';
+                    this.drinks[drinkIndex].textFile = eval(
+                        'this.languageFiles.' + textFileString
+                    );
+                    console.log(this.drinks[drinkIndex].textFile);
+                    this.parseAXResponse();
+                    break;
+                case 'German':
+                    textFileString =
+                        'textFile' + drink.title.split(' ')[0] + 'DE';
+                    this.drinks[drinkIndex].textFile = eval(
+                        'this.languageFiles.' + textFileString
+                    );
+                    this.parseAXResponse();
+                    break;
+            }
         }
     }
 };
