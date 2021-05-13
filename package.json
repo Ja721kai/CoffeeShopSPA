@@ -10,6 +10,8 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
     "core-js": "^3.6.5",
+    "lodash": "^4.17.21",
+    "lodash.sample": "^4.2.1",
     "v-video-embed": "^1.0.8",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

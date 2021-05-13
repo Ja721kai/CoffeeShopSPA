@@ -79,6 +79,9 @@ import textFileLatteDE from 'raw-loader!../ax_results/latte_DE.txt';
 import textFileCappuccinoDE from 'raw-loader!../ax_results/cappuccino_DE.txt';
 import LanguageDropdown from './LanguageDropdown';
 
+// eslint-disable-next-line no-unused-vars
+const sample = require('lodash.sample');
+
 export default {
     name: 'HomeCoffeeCards',
     components: { LanguageDropdown },
@@ -137,10 +140,22 @@ export default {
             }
         },
         regenerateText(drink) {
-            let oldValue = drink.paragraphs[0].text;
-            let newValue = 'TEST';
-            drink.paragraphs[0].text = newValue;
-            this.diff = !oldValue.includes(newValue);
+            const drinkIndex = this.drinks.findIndex(
+                dataDrink => dataDrink.title == drink.title
+            );
+            const textFile = this.drinks[drinkIndex].textFile;
+            let split = textFile.split('</h1>');
+            let coffee_title = split[0].split('<h1>')[1];
+            let coffee_paragraph_split = split[1].split('<p>');
+            let paragraphArray = [];
+            for (let j = 1; j < coffee_paragraph_split.length; j++) {
+                paragraphArray.push(
+                    coffee_paragraph_split[j].replaceAll('</p>', '')
+                );
+            }
+
+            this.drinks[drinkIndex].title = coffee_title;
+            this.drinks[drinkIndex].paragraph = sample(paragraphArray);
         },
         changeLanguage(drink) {
             const drinkIndex = this.drinks.findIndex(
