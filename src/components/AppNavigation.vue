@@ -119,7 +119,7 @@ export default {
     },
     data() {
         return {
-            appTitle: 'Coffee Shop Showcase',
+            appTitle: 'Coffee Shop Demo',
             drawer: false,
             items: [
                 { title: 'Drinks' },
