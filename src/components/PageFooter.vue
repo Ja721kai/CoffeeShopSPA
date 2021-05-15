@@ -30,10 +30,20 @@
 
             <v-card-text class="white--text">
                 {{ new Date().getFullYear() }} —
-                <strong>Fair-Coffee Konstanz GbR</strong> -
+                <strong
+                    >A Showcase Website of
+                    <a
+                        href="https://www.xanevo.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Xanevo GmbH</a
+                    ></strong
+                >
+                <!---
                 <router-link to="/imprint">
                     <b @click="scrollToTop()">Imprint</b>
-                </router-link>
+                </router-link>-->
             </v-card-text>
         </v-card>
     </v-footer>

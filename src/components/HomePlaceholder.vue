@@ -11,7 +11,7 @@ export default {
 <style scoped>
 #placeholder {
     width: 100%;
-    height: 200px;
+    height: 100px;
     background-color: white;
 }
 </style>

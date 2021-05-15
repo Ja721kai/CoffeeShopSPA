@@ -31,6 +31,7 @@
                 <v-toolbar-title
                     style="color: white"
                     @click="scrollToComponent('top')"
+                    id="page-title"
                     >{{ appTitle }}</v-toolbar-title
                 >
             </router-link>
@@ -45,9 +46,9 @@
                         v-for="(item, index) in items"
                         :key="index"
                         @click="scrollToComponent(item.title)"
-                        style="margin-left: 40px"
+                        style="margin-left: 40px; cursor: pointer;"
                     >
-                        <v-toolbar-title> {{ item.title }}</v-toolbar-title>
+                        <v-toolbar-title id="nav-title"> {{ item.title }}</v-toolbar-title>
                     </v-col>
                 </v-row>
             </v-container>
@@ -116,12 +117,12 @@ export default {
     },
     data() {
         return {
-            appTitle: 'Fair-Coffee',
+            appTitle: 'Coffee Shop Showcase',
             drawer: false,
             items: [
+                { title: 'Drinks' },
                 { title: 'How We Work' },
-                { title: 'History' },
-                { title: 'Drinks' }
+                { title: 'History' }
                 // { title: '...' }  -> to add extra elements
             ],
             navBackgroundUrl
@@ -146,5 +147,8 @@ export default {
 }
 #nav-container {
     margin: 5px;
+}
+#nav-title:hover, #page-title:hover {
+  text-decoration: underline;
 }
 </style>
