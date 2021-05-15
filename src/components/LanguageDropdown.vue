@@ -4,6 +4,7 @@
         :items="languages"
         @input="changeLanguage()"
         prepend-icon="mdi-translate"
+        style="color:#5d4037 !important;"
     ></v-select>
 </template>
 
