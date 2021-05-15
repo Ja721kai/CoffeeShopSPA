@@ -146,6 +146,7 @@ export default {
 #navigation {
     background-color: transparent;
     color: white;
+    background-repeat: repeat;
 }
 #nav-container {
     margin: 5px;
