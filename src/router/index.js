@@ -9,13 +9,13 @@ const routes = [
         path: '/',
         name: 'home',
         component: Home
-    },
+    } /*,
     {
         path: '/imprint',
         name: 'imprint',
         component: () =>
-            import(/* webpackChunkName: "imprint" */ '../views/Imprint.vue')
-    }
+            import(/* webpackChunkName: "imprint" */ /* '../views/Imprint.vue')
+    }*/
 ];
 
 const router = new VueRouter({

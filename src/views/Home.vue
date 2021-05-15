@@ -1,9 +1,9 @@
 <template>
     <span>
         <home-hero></home-hero>
+        <home-coffee-cards></home-coffee-cards>
         <home-work></home-work>
         <home-history></home-history>
-        <home-coffee-cards></home-coffee-cards>
         <home-placeholder></home-placeholder>
     </span>
 </template>
