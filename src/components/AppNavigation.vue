@@ -48,7 +48,9 @@
                         @click="scrollToComponent(item.title)"
                         style="margin-left: 40px; cursor: pointer;"
                     >
-                        <v-toolbar-title id="nav-title"> {{ item.title }}</v-toolbar-title>
+                        <v-toolbar-title id="nav-title">
+                            {{ item.title }}</v-toolbar-title
+                        >
                     </v-col>
                 </v-row>
             </v-container>
@@ -148,7 +150,8 @@ export default {
 #nav-container {
     margin: 5px;
 }
-#nav-title:hover, #page-title:hover {
-  text-decoration: underline;
+#nav-title:hover,
+#page-title:hover {
+    text-decoration: underline;
 }
 </style>
