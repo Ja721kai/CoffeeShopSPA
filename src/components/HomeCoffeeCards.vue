@@ -43,13 +43,6 @@
                                 {{ drink.paragraph }}
                             </p>
                             <p></p>
-                            <!--
-                            This can be used to insert empty lines into hero cards: (just empty paragraph)
-                            <p></p>
-                            <div>
-                              {{ drink.text }}
-                            </div>
-                            -->
                         </div>
                     </v-card-title>
                     <v-flex class="text-right">
@@ -121,24 +114,11 @@ export default {
     },
     // TODO: Switch to Vuex and use Mutations to change states and request data:
     mounted() {
-        this.parseAXResponse();
+        this.drinks.forEach(x => {
+            this.regenerateText(x);
+        });
     },
     methods: {
-        parseAXResponse() {
-            for (let i = 0; i < this.drinks.length; i++) {
-                const textFile = this.drinks[i].textFile;
-                let split = textFile.split('</h1>');
-                let coffee_title = split[0].split('<h1>')[1];
-                let coffee_paragraph_split = split[1].split('<p>');
-                let paragraph = coffee_paragraph_split[1].replaceAll(
-                    '</p>',
-                    ''
-                );
-
-                this.drinks[i].title = coffee_title;
-                this.drinks[i].paragraph = paragraph;
-            }
-        },
         regenerateText(drink) {
             const drinkIndex = this.drinks.findIndex(
                 dataDrink => dataDrink.title == drink.title
@@ -158,29 +138,27 @@ export default {
             this.drinks[drinkIndex].paragraph = sample(paragraphArray);
         },
         changeLanguage(drink) {
+            switch (this.selectedLanguage) {
+                case 'English':
+                    this.assignTextFileString(drink, 'EN');
+                    break;
+                case 'German':
+                    this.assignTextFileString(drink, 'DE');
+                    break;
+            }
+            this.regenerateText(drink);
+        },
+        assignTextFileString(drink, languageCode) {
             const drinkIndex = this.drinks.findIndex(
                 dataDrink => dataDrink.title == drink.title
             );
             let textFileString;
-            switch (this.selectedLanguage) {
-                case 'English':
-                    textFileString =
-                        'textFile' + drink.title.split(' ')[0] + 'EN';
-                    this.drinks[drinkIndex].textFile = eval(
-                        'this.languageFiles.' + textFileString
-                    );
-                    console.log(this.drinks[drinkIndex].textFile);
-                    this.parseAXResponse();
-                    break;
-                case 'German':
-                    textFileString =
-                        'textFile' + drink.title.split(' ')[0] + 'DE';
-                    this.drinks[drinkIndex].textFile = eval(
-                        'this.languageFiles.' + textFileString
-                    );
-                    this.parseAXResponse();
-                    break;
-            }
+            textFileString =
+                'textFile' + drink.title.split(' ')[0] + languageCode;
+            this.drinks[drinkIndex].textFile = eval(
+                'this.languageFiles.' + textFileString
+            );
+            console.log(this.drinks[drinkIndex].textFile);
         }
     }
 };
