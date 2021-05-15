@@ -5,7 +5,6 @@
         <home-history></home-history>
         <home-coffee-cards></home-coffee-cards>
         <home-placeholder></home-placeholder>
-        <page-footer></page-footer>
     </span>
 </template>
 
@@ -15,7 +14,6 @@ import HomeWork from '@/components/HomeWork';
 import HomeHistory from '@/components/HomeHistory';
 import HomeCoffeeCards from '@/components/HomeCoffeeCards';
 import HomePlaceholder from '@/components/HomePlaceholder';
-import PageFooter from '@/components/PageFooter';
 
 export default {
     name: 'home',
@@ -24,8 +22,7 @@ export default {
         HomeWork,
         HomeHistory,
         HomeCoffeeCards,
-        HomePlaceholder,
-        PageFooter
+        HomePlaceholder
     }
 };
 </script>

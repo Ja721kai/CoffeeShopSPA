@@ -1,29 +1,31 @@
 <template>
     <v-app>
         <app-navigation></app-navigation>
-
         <v-main transition="slide-x-transition">
             <router-view></router-view>
+            <page-footer></page-footer>
         </v-main>
-        <v-btn
-            id="top"
-            outlined
-            @click="scrollToTop()"
-            style="display: none"
-            v-if="['home'].includes($route.name)"
-        >
-            back to Top
-        </v-btn>
+        <!-- <v-btn
+              id="top"
+              outlined
+              @click="scrollToTop()"
+              style="display: none"
+              v-if="['home'].includes($route.name)"
+          >
+              back to Top
+          </v-btn> -->
     </v-app>
 </template>
 
 <script>
 import AppNavigation from '@/components/AppNavigation';
+import PageFooter from '@/components/PageFooter';
 
 export default {
     name: 'App',
     components: {
-        AppNavigation
+        AppNavigation,
+        PageFooter
     },
     created() {
         window.addEventListener('scroll', this.handleScroll);
@@ -61,7 +63,7 @@ export default {
                     html.offsetHeight
                 );
                 pageHeight = document.documentElement.scrollHeight;
-                let pageBottomOffset = pageHeight - window.scrollY - '969'; // mysterios 1090px not in body
+                let pageBottomOffset = pageHeight - window.scrollY - '969'; // mysterious 1090px not in body
 
                 //let footer = document.getElementById('pageFooter');
                 let footerHeight = 183; //footer.style.height;
@@ -88,5 +90,10 @@ export default {
     bottom: 15px;
     right: 40px;
     width: 180px;
+}
+.page-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
 </style>
