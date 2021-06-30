@@ -1,6 +1,11 @@
 <template>
     <v-footer dark padless id="pageFooter">
-        <v-card flat tile class="brown darken-2 white--text text-center">
+        <v-card
+            flat
+            tile
+            width="100%"
+            class="indigo darken-4 white--text text-center"
+        >
             <v-card-text>
                 <v-btn
                     v-for="icon in icons"
@@ -15,15 +20,15 @@
             </v-card-text>
 
             <v-card-text class="white--text pt-0">
-                Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit
-                amet. Mauris cursus commodo interdum. Praesent ut risus eget
-                metus luctus accumsan id ultrices nunc. Sed at orci sed massa
-                consectetur dignissim a sit amet dui. Duis commodo vitae velit
-                et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat
-                augue vel ipsum ultrices, cursus iaculis dui sollicitudin.
-                Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci
-                varius natoque penatibus et magnis dis parturient montes,
-                nascetur ridiculus mus.
+                Do you want to automatically generate your own multilingual
+                content?
+                <a
+                    href="https://www.xanevo.com/contact"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <b>Contact Us</b>
+                </a>
             </v-card-text>
 
             <v-divider></v-divider>
@@ -37,13 +42,9 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Xanevo GmbH</a
+                        <b>Xanevo GmbH</b></a
                     ></strong
                 >
-                <!---
-                <router-link to="/imprint">
-                    <b @click="scrollToTop()">Imprint</b>
-                </router-link>-->
             </v-card-text>
         </v-card>
     </v-footer>
@@ -69,5 +70,6 @@ export default {
 <style scoped>
 .v-application a {
     text-decoration: none;
+    color: white;
 }
 </style>
