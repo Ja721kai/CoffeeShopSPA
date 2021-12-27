@@ -4,12 +4,13 @@
             <v-card-text>
                 <v-btn
                     v-for="icon in icons"
-                    :key="icon"
+                    :key="icon.id"
                     class="mx-4 white--text"
+                    :href="icon.url"
                     icon
                 >
                     <v-icon size="24px">
-                        {{ icon }}
+                        {{ icon.id }}
                     </v-icon>
                 </v-btn>
             </v-card-text>
@@ -53,7 +54,23 @@
 export default {
     name: 'HomeFooter',
     data: () => ({
-        icons: ['mdi-facebook', 'mdi-twitter', 'mdi-linkedin', 'mdi-instagram']
+        icons: [
+            {
+                id: 'mdi-facebook',
+                url: 'https://www.facebook.com/Xanevo-GmbH-105194401768701'
+            },
+            { id: 'mdi-twitter', url: 'https://twitter.com/Xanevo1' },
+            {
+                id: 'mdi-linkedin',
+                url: 'https://www.linkedin.com/company/77195980/'
+            },
+            { id: 'mdi-instagram', url: 'https://www.instagram.com/xanevo_/' },
+            {
+                id: 'mdi-youtube',
+                url:
+                    'https://www.youtube.com/channel/UC6vQNuxLKEpHgQg2Gc0_uTw/featured'
+            }
+        ]
     }),
     methods: {
         scrollToTop() {
