@@ -26,7 +26,7 @@ export default {
 
 <style scoped>
 .home-hero {
-    background-image: url('../assets/compressed/cafe_hero.jpg');
+    background-image: url('../assets/cafe_hero.jpg');
     background-position: bottom;
     background-size: cover;
     width: 100%;

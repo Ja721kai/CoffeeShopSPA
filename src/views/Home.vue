@@ -1,14 +1,8 @@
 <template>
     <span>
         <home-hero></home-hero>
-<<<<<<< HEAD
-        <home-coffee-cards></home-coffee-cards>
-        <home-work></home-work>
-        <home-history></home-history>
-=======
         <about></about>
         <home-coffee-cards></home-coffee-cards>
->>>>>>> origin/dev_slim
         <home-placeholder></home-placeholder>
     </span>
 </template>

@@ -60,9 +60,9 @@
 </template>
 
 <script>
-import image1 from '../assets/compressed/cafe1_vert.jpg';
-import image2 from '../assets/compressed/cafe2_vert.jpg';
-import image3 from '../assets/compressed/cafe5_vert.jpg';
+import image1 from '../assets/cafe1_vert.jpg';
+import image2 from '../assets/cafe2_vert.jpg';
+import image3 from '../assets/cafe5_vert.jpg';
 import textFileEspressoEN from 'raw-loader!../ax_results/espresso_EN.txt';
 import textFileLatteEN from 'raw-loader!../ax_results/latte_EN.txt';
 import textFileCappuccinoEN from 'raw-loader!../ax_results/cappuccino_EN.txt';

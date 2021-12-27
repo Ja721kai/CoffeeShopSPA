@@ -44,7 +44,8 @@
                         rel="noopener noreferrer"
                     >
                         <b>Xanevo GmbH</b></a
-                    ></strong>
+                    ></strong
+                >
             </v-card-text>
         </v-card>
     </v-footer>
