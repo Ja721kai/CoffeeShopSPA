@@ -122,9 +122,8 @@ export default {
             appTitle: 'Coffee Shop Demo',
             drawer: false,
             items: [
-                { title: 'Drinks' },
-                { title: 'How We Work' },
-                { title: 'History' }
+                { title: 'About' },
+                { title: 'Drinks' }
                 // { title: '...' }  -> to add extra elements
             ],
             navBackgroundUrl
