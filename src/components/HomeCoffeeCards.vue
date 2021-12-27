@@ -111,7 +111,6 @@ export default {
             selectedLanguage: 'English'
         };
     },
-    // TODO: Switch to Vuex and use Mutations to change states and request data:
     mounted() {
         this.drinks.forEach(x => {
             this.regenerateText(x);
@@ -134,7 +133,11 @@ export default {
             }
 
             this.drinks[drinkIndex].title = coffee_title;
-            this.drinks[drinkIndex].paragraph = sample(paragraphArray);
+            let tempText = sample(paragraphArray);
+            while (tempText === this.drinks[drinkIndex].paragraph) {
+                tempText = sample(paragraphArray);
+            }
+            this.drinks[drinkIndex].paragraph = tempText;
         },
         changeLanguage(drink) {
             switch (this.selectedLanguage) {
