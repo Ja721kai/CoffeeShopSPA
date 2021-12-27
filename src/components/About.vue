@@ -9,7 +9,7 @@
                     This is a in development version of our coffee article
                     descriptions showcase. This page is going to move to our
                     <a
-                        href="www.xanevo.com"
+                        href="https://www.xanevo.com"
                         target="_blank"
                         rel="noopener noreferrer"
                         >homepage</a
